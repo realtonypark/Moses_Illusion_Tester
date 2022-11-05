@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+<!-- <html lang="en"> -->
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Font Awesome Script -->
+    <script
+      src="https://kit.fontawesome.com/c875ce7059.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!--CSS Stylesheet-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!--Title-->
+    <title>Moses Illusion Tester</title>
+    <link rel="shortcut icon" type="image/x-icon" href="etc/brainwave.ico">
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-light bg-white my-2 justify-content-lg-between justify-content-md-around justify-content-sm-around"
+      role="navigation"
+    >
+      <a class="navbar-brand bg-teal my-2" href="HighScores.html"
+        ><h1>결과 보기</h1></a
+      >
+      <div class="row-fluid d-flex flex-row my-2">
+        <div class="timer px-4" id="timer">
+          <h3><i class="fas fa-hourglass-start"></i>| Timer: 0</h3>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" id="start-container" style="display: block;">
+      <div class="row">
+        <div class="col-md">
+          <h2>Moses Illusion Test</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div id="instructions" class="col-md wrap-text m-4 py-3">
+          <p>
+            > 뇌파 측정기를 착용한 후 시작 버튼을 클릭해서 테스트를 시작해주세요. <br/>
+            
+            > True/False 유형의 문제가 총 80개 주어집니다. <br/>
+
+            > 반드시 10초 안에 문제를 읽고 T/F 중 답변을 선택해주세요. <br/>
+
+            > 테스트 관련 안내 <br/>
+
+            > 테스트 관련 안내 <br/>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md" id="firstQuestion">
+          <input
+            type="button"
+            value="시작"
+            id="startQuiz"
+            class="btn btn-info btn-lg"
+            onclick="startNow()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="question-container" style="display: none">
+      <div class="row">
+        <div class="col-md">
+          <h2 id="question-title"></h2>
+          <div id="answers" class="btn-group-vertical">
+            <!-- <button id="0", onclick="startNow()"></button> -->
+            <!-- <button id="1", onclick="startNow()"></button> -->
+            <button id="0"></button>
+            <button id="1"></button>
+          </div>
+          <div id="evaluate-answer"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="score-container" style="display: none">
+      <div class="row">
+        <div class="col-md">
+          <h2>수고하셨습니다, 감사합니다.</h2>
+          <h5>마우스 우클릭 -> 검사 -> Console -> Array(80) 클릭으로 정답, 시간 확인</h5>
+        </div>
+      </div>
+      <br>
+      <div class="row justify-content-center mb-5">
+        <div class="col-md" id="final-score"></div>
+      </div>
+      <div class="row" id="submit-highscores" class="py-3">
+        <div class="col-md">
+          <h3 id="submissionLabel" class="my-4">기수와 이름을 입력해주세요</h3>
+        </div>
+        <div class="col-md">
+          <input
+            type="text"
+            placeholder="예) 26기 박승현"
+            style="text-transform: uppercase"
+            class="my-4"
+            id="enter-initials"
+          />
+        </div>
+        <div class="col-md">
+          <input
+            type="submit"
+            id="submit-initials"
+            class="btn btn-info btn-block my-4"
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center mt-5">
+        <div id="evaluate-answer-final"></div>
+      </div>
+    </div>
+
+    <!--Footer Content-->
+    <footer class="footer mt-5">
+      <div class="container text-center">
+        <span class="text-muted">&copy; 2022 민족사관고등학교 진유림, 박승현, 장진원</span>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="javascript/codingQuestions.js"></script>
+    <script type="text/javascript" src="javascript/startQuiz.js"></script>
+
+    <!--
+    <button onclick="startNow()">Start</button>
+    <button onclick="endNow()">End</button>
+    -->
+  </body>
+</html>

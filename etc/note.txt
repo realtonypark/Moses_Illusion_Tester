@@ -1,0 +1,63 @@
+https://www.youtube.com/watch?v=riDzcEQbX6k
+https://developer.mozilla.org/en-US/docs/Web/API/Performance/now
+https://www.youtube.com/watch?v=pwabv9UtrNE
+
+https://stackoverflow.com/questions/41632942/how-to-measure-time-elapsed-on-javascript
+
+https://i.ytimg.com/an_webp/mHJDtDM_wHc/mqdefault_6s.webp?du=3000&sqp=CMDMh5sG&rs=AOn4CLBOnVKUs7pdGELSuP9U4zBlfgg6cA
+
+https://www.ispringsolutions.com/blog/how-to-create-timed-quiz
+
+momentjs, callback 함수, timeout 함수
+
+Github에 quiz web app과 같은 자료 많으니 참고하기
+ReactJS?
+
+<Psuedo Code>
+Step 1: Build landing page with call-to-action to start the quiz, 
+        //instuction for the quiz in a div
+        //timer in the left top corner (nav bar?)
+        //and view high scores option in the top right corner (nav bar?)
+        //name it startQuiz.html
+        //link to bootstrap and javascript
+
+Step 2: When CTA button is clicked,
+        //starts timer, logs timer to local storage,
+        //get timer from local storage and create content to top right
+        //displays first question (on a new HTML page?)
+        //textCreate first title,
+        //text create buttons so the answers pull from the choices array,
+        
+Step 3a: When choice button is clicked,
+        //move questions array forward 1 and 
+        //write next title 
+        //write next choices as button list
+        //timer continues countdown
+
+Step 3b: When choice button is clicked,
+        //check if value of index of choice selected is same as answer 
+        //evaluate it to true or false
+        //append (?) the answer in a true/false alert on the next question in the array
+
+Step 3c: When choice button is clicked,
+        //check if value of index of choice selected is same as answer
+        //if wrong, assign 0 point, subtract 15 seconds
+        //if correct, add 10 points
+
+Step 4: Build final score html 
+        //"All Done" header    
+        //write final score as text at top
+        //include input field to "Enter initials:"
+        //include submit button 
+        //when submit is clicked,
+                //send users to high scores page
+                //send intitials-score to local storage        
+
+Step 5: Build page to return initials and final score
+        //Header is "HighSchores"
+        //Get intitials-score data from local storage on load 
+        //button to go back to beginning
+        //button to clear high scores
+        //link to this page from from nav bar on each html page
+
+
