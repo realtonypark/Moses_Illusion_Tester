@@ -478,7 +478,7 @@ var questions = [
    answer: "False"
  },
  {
-   title: "15. It is Santa that is n in the red suit and long white beard who gives out birthday presents from his sleigh",
+   title: "15. It is Santa that is in the red suit and long white beard who gives out birthday presents from his sleigh",
    choices: ["True", "False"],
    answer: "False"
  },
