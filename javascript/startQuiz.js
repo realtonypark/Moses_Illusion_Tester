@@ -15,7 +15,7 @@ var timer = document.querySelector("#timer");
 let currentQuestionIndex = 0;
 let q = questions[currentQuestionIndex];
 let score = 0;
-var timeLeft = 10;
+var timeLeft = 7;
 var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
 
 let correctAnswerNum = 0;
@@ -107,7 +107,7 @@ function nextQuestion() {
   endNow();
   startNow();
   console.log(output);
-  timeLeft = 10;
+  timeLeft = 7;
   //startTimer();
   console.log("incrementing");
   currentQuestionIndex++;
