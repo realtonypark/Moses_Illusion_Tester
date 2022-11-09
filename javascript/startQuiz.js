@@ -26,6 +26,7 @@ answers.addEventListener("click", checkAnswer);
 finalAnswer.addEventListener("click", finalScorePage);
 submitInitials.addEventListener("click", pushScores);
 
+
 //FUNCTIONS 
 function Start() {
   currentQuestionIndex = 0;
