@@ -46,6 +46,7 @@ function startTimer() {
     icon.setAttribute("class", "fas fa-hourglass-start fa-spin");
     timer.prepend(icon);
     if (timeLeft <= 0) {
+      /*      
       timer.textContent = "|  시간이 종료되었습니다.";
       timer.style.backgroundColor = "red";
       timer.style.borderColor = "red";
@@ -61,6 +62,9 @@ function startTimer() {
       finalScore.textContent = "맞은 문제의 개수: " + (correctAnswerNum) + "/80";
       //finalScore.setAttribute("class", "score");
       finalScore.setAttribute("class", "correctAnswerNum");
+      */
+      nextQuestion();
+      
     }
     
     if (currentQuestionIndex === 80) {
