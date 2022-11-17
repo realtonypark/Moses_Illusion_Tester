@@ -46,25 +46,7 @@ function startTimer() {
     icon.setAttribute("class", "fas fa-hourglass-start fa-spin");
     timer.prepend(icon);
     if (timeLeft <= 0) {
-      /*      
-      timer.textContent = "|  시간이 종료되었습니다.";
-      timer.style.backgroundColor = "red";
-      timer.style.borderColor = "red";
-      timer.style.color = "#ffffff";
-      
-      icon.setAttribute("class", "fas fa-hourglass-end");
-      timer.prepend(icon);
-      clearInterval(timeInterval);
-      questionContainer.setAttribute("style", "display: none");
-      scoreContainer.setAttribute("style", "display: block");
-      
-      //finalScore.textContent = "Your final score is " + (score += timeLeft) + "!";
-      finalScore.textContent = "맞은 문제의 개수: " + (correctAnswerNum) + "/80";
-      //finalScore.setAttribute("class", "score");
-      finalScore.setAttribute("class", "correctAnswerNum");
-      */
-      nextQuestion();
-      
+      loadingPage();
     }
     
     if (currentQuestionIndex === 80) {
@@ -104,15 +86,26 @@ function checkAnswer(event) {
   else{
     output[currentQuestionIndex].tf = "오답";
   }
-  nextQuestion();
+  loadingPage();
+}
+
+function loadingPage() {
+  endNow();
+  document.querySelector("#question-title").innerHTML = "다음 문제 준비하세요...";
+  //hide(document.getElementById('timer'));
+  timeLeft = 8;
+  document.getElementById("timer").style.display="none";
+  document.getElementById("answers").style.display="none";
+  setTimeout(nextQuestion, 1500);
 }
 
 //has to be after checkAnswer
 function nextQuestion() {
-  endNow();
   startNow();
   console.log(output);
   timeLeft = 7;
+  document.getElementById("timer").style.display="block";
+  document.getElementById("answers").style.display="block";
   //startTimer();
   console.log("incrementing");
   currentQuestionIndex++;
