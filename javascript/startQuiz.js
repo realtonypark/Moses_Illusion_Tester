@@ -127,9 +127,10 @@ function finalScorePage(event) {
     //finalScore.textContent = output;
     //alert(output);
     finalScore.setAttribute("class", "correctAnswerNum");
-    //alert("마우스 우클릭 -> 검사 -> Console -> Array(80)");
+    alert("검사 결과 Copy & Paste!");
   }
   console.log("finalscorepage");
+  
   //console.log(output);
 }
 
