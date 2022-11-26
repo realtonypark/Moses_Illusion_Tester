@@ -49,7 +49,7 @@ function startTimer() {
       loadingPage();
     }
     
-    if (currentQuestionIndex === 80) {
+    if (currentQuestionIndex === 36) {
       timer.textContent = "|  종료";
       timer.style.backgroundColor = "green";
       timer.style.borderColor = "green";
@@ -119,15 +119,15 @@ function nextQuestion() {
 //displays final score page wih final score
 function finalScorePage(event) {
   q = questions[currentQuestionIndex];
-  if (event.target.matches("button") && currentQuestionIndex === 80) {
+  if (event.target.matches("button") && currentQuestionIndex === 36) {
     questionContainer.setAttribute("style", "display: none");
     scoreContainer.setAttribute("style", "display: block");
 
-    finalScore.textContent = "맞은 문제의 개수: " + (correctAnswerNum) + "/80";
+    finalScore.textContent = "맞은 문제의 개수: " + (correctAnswerNum) + "/36";
     //finalScore.textContent = output;
     //alert(output);
     finalScore.setAttribute("class", "correctAnswerNum");
-    //alert("마우스 우클릭 -> 검사 -> Console -> Array(80)");
+    alert("검사 결과 Copy&Paste");
   }
   console.log("finalscorepage");
   //console.log(output);
