@@ -18,6 +18,9 @@ let score = 0;
 var timeLeft = 7;
 var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
 
+var flag = true;
+var totalTime = 0;
+
 let correctAnswerNum = 0;
 
 window.addEventListener("load", renderQuestion);
@@ -35,6 +38,8 @@ function Start() {
   startContainer.setAttribute("style", "display: none");
   questionContainer.setAttribute("style", "display: block");
   startTimer();
+  loadingPage();
+  totalTimeStarts();
 }
 
 function startTimer() {
@@ -90,13 +95,25 @@ function checkAnswer(event) {
 }
 
 function loadingPage() {
-  endNow();
-  document.querySelector("#question-title").innerHTML = "다음 문제 준비하세요...";
-  //hide(document.getElementById('timer'));
-  timeLeft = 8;
-  document.getElementById("timer").style.display="none";
-  document.getElementById("answers").style.display="none";
-  setTimeout(nextQuestion, 1500);
+    if(flag == true){
+      document.querySelector("#question-title").innerHTML = "준비하세요...";
+      //hide(document.getElementById('timer'));
+      timeLeft = 8;
+      document.getElementById("timer").style.display="none";
+      document.getElementById("answers").style.display="none";
+      currentQuestionIndex -= 1;
+      setTimeout(nextQuestion, 1500);
+      flag = false;
+    }
+    else{
+      endNow();
+      document.querySelector("#question-title").innerHTML = "준비하세요...";
+      //hide(document.getElementById('timer'));
+      timeLeft = 8;
+      document.getElementById("timer").style.display="none";
+      document.getElementById("answers").style.display="none";
+      setTimeout(nextQuestion, 1500);
+    }
 }
 
 //has to be after checkAnswer
@@ -120,14 +137,17 @@ function nextQuestion() {
 function finalScorePage(event) {
   q = questions[currentQuestionIndex];
   if (event.target.matches("button") && currentQuestionIndex === 36) {
+    totalTimeEnds();
     questionContainer.setAttribute("style", "display: none");
     scoreContainer.setAttribute("style", "display: block");
 
-    finalScore.textContent = "맞은 문제의 개수: " + (correctAnswerNum) + "/36";
+    finalScore.textContent = "맞은 문제의 개수: " + (correctAnswerNum) + "/36" + " | 소요 시간: " + totalTime + "sec";
+    console.log("소요 시간: "+ totalTime + "sec");
+    //alert("소요 시간: "+ totalTime + "sec");
     //finalScore.textContent = output;
     //alert(output);
     finalScore.setAttribute("class", "correctAnswerNum");
-    alert("검사 결과 Copy&Paste");
+    //alert("검사 결과 Copy&Paste");
   }
   console.log("finalscorepage");
   //console.log(output);
@@ -153,7 +173,7 @@ function pushScores() {
   }
 }
 
-//Time Couning
+//Time Counting
 function startNow() {
   startTime = new Date();
 };
@@ -175,4 +195,16 @@ function endNow() {
   */
   output[currentQuestionIndex].number = questions[currentQuestionIndex];
   output[currentQuestionIndex].timeDiff = timeDiff;
+  //totalTime += timeDiff;
+}
+
+//Total time Counting
+function totalTimeStarts(){
+  sTime = new Date();
+}
+
+function totalTimeEnds(){
+  eTime = new Date();
+  totalTime = eTime - sTime;
+  totalTime /= 1000;
 }
